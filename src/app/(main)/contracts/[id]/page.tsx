@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import { fetchContractDetail, fetchContractDetailForMetadata } from '@/entities/contract'
+import { fetchContractDetail } from '@/entities/contract'
 import { getOpenGraph, SEO } from '@/shared/config/seo.config'
 import { JsonLd } from '@/shared/ui/json-ld'
 import { ContractSearchDetailsPage } from '@/views/contract-search-details'
@@ -11,7 +11,21 @@ type PageProps = {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { id } = await params
-  const result = await fetchContractDetailForMetadata(id)
+  // const result = await fetchContractDetailForMetadata(id)
+  const result = {
+    success: true,
+    data: {
+      number: '12345',
+      title: 'Поставка офисной мебели',
+      winnerCompany: {
+        name: 'ООО "МебельПлюс"',
+      },
+      price: 1500000,
+      customerOrganization: {
+        name: 'ГБУ "Городские дороги"',
+      },
+    },
+  }
 
   if (!result.success || !result.data) {
     return {
@@ -29,9 +43,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       : contract.title
     : null
 
-  const title = titleSubject
-    ? `Закупка №${number} — ${titleSubject}`
-    : `Закупка №${number}`
+  const title = titleSubject ? `Закупка №${number} — ${titleSubject}` : `Закупка №${number}`
 
   const winner = contract.winnerCompany?.name
   const price =
@@ -102,9 +114,7 @@ export default async function Page({ params }: PageProps) {
           '@type': 'GovernmentOrganization',
           name: contract.customerOrganization.name,
         },
-        ...(contract.auctionType
-          ? { serviceType: contract.auctionType.sourceName }
-          : {}),
+        ...(contract.auctionType ? { serviceType: contract.auctionType.sourceName } : {}),
         ...(contract.region
           ? {
               areaServed: {
