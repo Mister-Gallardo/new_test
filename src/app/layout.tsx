@@ -24,7 +24,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(SEO.baseUrl),
 
   title: {
-    default: SEO.defaultTitle,
+    // default: SEO.defaultTitle,
+    default: 'QPW{EWQ{DASL:DLA:SD<C>XZ<>CZ',
     template: `%s | ${SEO.siteName}`,
   },
 
