@@ -135,7 +135,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const { isAuth } = false
+  const isAuth  = false
 
   return (
     <html lang="ru">
