@@ -1,8 +1,7 @@
-import { env } from "./env";
-
 export const SEO = {
   siteName: 'Тендерград',
-  baseUrl: env.NEXT_PUBLIC_API_URI,
+  baseUrl: 'https://new-test-three-ruby.vercel.app',
+  // baseUrl: env.NEXT_PUBLIC_API_URI,
   defaultTitle: 'Тендерград — субподряд на поставку товаров, работ и услуг у победителей закупок',
   defaultDescription:
     'Найдем безопасный подряд у победителей коммерческих тендеров и госзакупок: подберем объекты, проверим заказчика и договоримся о встрече за вас.',
