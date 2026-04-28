@@ -1,9 +1,7 @@
 import type { Metadata } from 'next'
 
-import { fetchContractDetail } from '@/entities/contract'
 import { getOpenGraph, SEO } from '@/shared/config/seo.config'
 import { JsonLd } from '@/shared/ui/json-ld'
-import { ContractSearchDetailsPage } from '@/views/contract-search-details'
 
 type PageProps = {
   params: Promise<{ id: string }>
@@ -81,7 +79,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function Page({ params }: PageProps) {
   const { id } = await params
-  const result = await fetchContractDetail(id)
+  // const result = await fetchContractDetail(id)
+  const result = {
+    success: true,
+    data: {
+      number: '12345',
+      title: 'Поставка офисной мебели',
+      winnerCompany: {
+        name: 'ООО "МебельПлюс"',
+      },
+      price: 1500000,
+      customerOrganization: {
+        name: 'ГБУ "Городские дороги"',
+      },
+    },
+  }
+
   const contract = result.success ? result.data : null
 
   const breadcrumbJsonLd = {
@@ -114,15 +127,6 @@ export default async function Page({ params }: PageProps) {
           '@type': 'GovernmentOrganization',
           name: contract.customerOrganization.name,
         },
-        ...(contract.auctionType ? { serviceType: contract.auctionType.sourceName } : {}),
-        ...(contract.region
-          ? {
-              areaServed: {
-                '@type': 'AdministrativeArea',
-                name: contract.region,
-              },
-            }
-          : {}),
         ...(contract.price && contract.price !== -1
           ? {
               offers: {
@@ -139,7 +143,8 @@ export default async function Page({ params }: PageProps) {
     <>
       <JsonLd data={breadcrumbJsonLd} />
       {governmentServiceJsonLd && <JsonLd data={governmentServiceJsonLd} />}
-      <ContractSearchDetailsPage contractId={id} />
+      {/* <ContractSearchDetailsPage contractId={id} /> */}
+      <h1>ЗАГЛУШКА</h1>
     </>
   )
 }
