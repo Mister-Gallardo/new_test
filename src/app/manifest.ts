@@ -4,7 +4,8 @@ import { SEO } from '@/shared/config/seo.config'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: SEO.defaultTitle,
+    // name: SEO.defaultTitle,
+    name: 'QPW{EWQ{DASL:DLA:SD<C>XZ<>CZ MANIFEST',
     short_name: SEO.siteName,
     description: SEO.defaultDescription,
     start_url: '/',
