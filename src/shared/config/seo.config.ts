@@ -52,7 +52,8 @@ export const getOpenGraph = (
     description: SEO.defaultDescription,
     images: [
       {
-        url: new URL(SEO.ogImage, SEO.baseUrl).toString(),
+        // url: new URL(SEO.ogImage, SEO.baseUrl).toString(),
+        url: 'https://new-test-three-ruby.vercel.app/opengraph-image.png',
         width: 1200,
         height: 630,
         alt: `${SEO.siteName} — платформа субподряда`,
