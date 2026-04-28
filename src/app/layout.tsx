@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 
 import { getOpenGraph, SEO } from '@/shared/config/seo.config'
 import { JsonLd } from '@/shared/ui/json-ld'
+import { Toaster } from '@/shared/ui/sonner'
 
 import { Providers } from './providers'
 
@@ -135,7 +136,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const isAuth  = false
+  const isAuth = false
 
   return (
     <html lang="ru">
@@ -144,7 +145,7 @@ export default async function RootLayout({
         <JsonLd data={organizationJsonLd} />
         <JsonLd data={webApplicationJsonLd} />
         <Providers isAuth={isAuth}>{children}</Providers>
-        {/* <Toaster closeButton theme="light" /> */}
+        <Toaster closeButton theme="light" />
       </body>
     </html>
   )
