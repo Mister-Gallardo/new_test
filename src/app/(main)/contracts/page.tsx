@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 
 import { searchParamsCache } from '@/features/contracts-filter'
 import { getOpenGraph, SEO } from '@/shared/config/seo.config'
-import { ContractsSearchPage } from '@/views/contracts-search'
 
 export const metadata: Metadata = {
   title: 'Поиск закупок',
@@ -26,5 +25,6 @@ type PageProps = {
 export default async function Page({ searchParams }: PageProps) {
   await searchParamsCache.parse(searchParams)
 
-  return <ContractsSearchPage />
+  // return <ContractsSearchPage />
+  return <h1>ЗАГЛУШКА 2</h1>
 }
