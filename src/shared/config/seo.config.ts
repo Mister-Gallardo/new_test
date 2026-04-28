@@ -52,8 +52,7 @@ export const getOpenGraph = (
     description: SEO.defaultDescription,
     images: [
       {
-        // url: new URL(SEO.ogImage, SEO.baseUrl).toString(),
-        url: 'https://i.ibb.co/9mHnwmPP/opengraph-image.png',
+        url: new URL(SEO.ogImage, SEO.baseUrl).toString(),
         width: 1200,
         height: 630,
         alt: `${SEO.siteName} — платформа субподряда`,
