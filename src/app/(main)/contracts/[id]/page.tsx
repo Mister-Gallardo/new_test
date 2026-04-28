@@ -68,6 +68,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: {
       canonical: `/contracts/${id}`,
     },
+    twitter: {
+      card: 'summary_large_image',
+      // title: SEO.defaultTitle,
+      title,
+      description,
+      images: [new URL(SEO.ogImage, SEO.baseUrl).toString()],
+    },
     openGraph: getOpenGraph({
       type: 'website',
       title: `${title} | ${SEO.siteName}`,
