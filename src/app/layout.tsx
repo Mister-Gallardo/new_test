@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     // title: SEO.defaultTitle,
-    title: 'QPW{EWQ{DASL:DLA:SD<C>XZ<>CZ',
+    title: 'QPW{EWQ{DASL:DLA:SD<C>XZ<>CZ TWITTER',
     description: SEO.defaultDescription,
     images: [new URL(SEO.ogImage, SEO.baseUrl).toString()],
   },
