@@ -69,18 +69,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       canonical: `/contracts/${id}`,
     },
     twitter: {
-      card: 'summary_large_image',
+      card: 'summary_large_image', // разное
       // title: SEO.defaultTitle,
       title,
       description,
       images: [new URL(SEO.ogImage, SEO.baseUrl).toString()],
     },
-    openGraph: getOpenGraph({
-      type: 'website',
-      title: `${title} | ${SEO.siteName}`,
-      description,
-      url: `${SEO.baseUrl}/contracts/${id}`,
-    }),
+    openGraph: {
+      ...getOpenGraph({
+        type: 'website',
+        title: `${title} | ${SEO.siteName}`,
+        description,
+      }),
+      url: `${SEO.baseUrl}/contracts/${id}`, // явно поверх
+    },
   }
 }
 
