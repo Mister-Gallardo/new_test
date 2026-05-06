@@ -80,8 +80,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         type: 'website',
         title: `${title} | ${SEO.siteName}`,
         description,
+        url: `${SEO.baseUrl}/contracts/${id}`, 
       }),
-      url: `${SEO.baseUrl}/contracts/${id}`, // явно поверх
     },
   }
 }
